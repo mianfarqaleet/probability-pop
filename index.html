@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Probability Pop</title>
+<!-- Google Fonts for Bold, Punchy Typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 <!-- Supabase JS Library for Global Leaderboard -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
@@ -11,16 +15,16 @@
     --bg: #060709;
     --panel: #0d1013;
     --line: #1c2128;
-    --text: #f0f0f0;
-    --dim: #6c737e;
+    --text: #ffffff;
+    --dim: #8b949e;
     --accent: #7dffb3;
-    --accent-dim: rgba(125, 255, 179, 0.15);
+    --accent-dim: rgba(125, 255, 179, 0.18);
     --danger: #ff4d5e;
     --bubble-fill-a: #2a323d;
     --bubble-fill-b: #12161a;
     --bubble-border: #424d5b;
-    --mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'JetBrains Mono', Consolas, monospace;
+    --sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   * { box-sizing: border-box; }
@@ -78,33 +82,34 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 20px;
+    padding: 14px 24px;
     border-bottom: 1px solid var(--line);
     flex-shrink: 0;
     z-index: 10;
-    background: rgba(6, 7, 9, 0.85);
+    background: rgba(6, 7, 9, 0.88);
     backdrop-filter: blur(12px);
   }
 
   .stats {
     display: flex;
-    gap: 16px;
+    gap: 20px;
     align-items: center;
     flex-wrap: wrap;
   }
 
   .stat-label {
-    font-size: 9px;
+    font-size: 10px;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     color: var(--dim);
-    margin-bottom: 3px;
+    margin-bottom: 4px;
   }
 
   .stat-value {
     font-family: var(--mono);
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 21px;
+    font-weight: 800;
     font-variant-numeric: tabular-nums;
     line-height: 1;
   }
@@ -125,49 +130,52 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--line);
-    padding: 4px 8px;
+    padding: 5px 10px;
     border-radius: 8px;
     transition: all 0.15s ease;
   }
   .player-name-box:focus-within {
     border-color: var(--accent);
-    background: rgba(125, 255, 179, 0.05);
+    background: rgba(125, 255, 179, 0.08);
   }
   .player-name-input {
     background: transparent;
     border: none;
     outline: none;
     color: var(--text);
-    font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 600;
-    width: 90px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 800;
+    width: 100px;
     padding: 1px 0;
   }
 
   .lb-btn {
-    background: transparent;
+    background: #14181f;
     border: 1px solid var(--line);
     color: var(--text);
     font-family: var(--sans);
     font-size: 12px;
-    padding: 6px 12px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 14px;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.15s ease;
     height: fit-content;
   }
   .lb-btn:hover {
-    border-color: #3f4752;
-    background: #14181f;
+    border-color: #4f5866;
+    background: #1d232d;
   }
 
   .brand-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     position: relative;
   }
 
@@ -183,20 +191,21 @@
     gap: 3px;
   }
   .brand-icon span {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: var(--accent);
     box-shadow: 0 0 10px var(--accent);
     display: inline-block;
   }
-  .brand-icon span:nth-child(2) { opacity: 0.55; width: 5px; height: 5px; margin-top: 3px; }
+  .brand-icon span:nth-child(2) { opacity: 0.55; width: 6px; height: 6px; margin-top: 3px; }
 
   .brand-name {
-    font-weight: 800;
-    letter-spacing: 0.03em;
-    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    font-size: 18px;
     color: var(--text);
+    text-transform: uppercase;
   }
   .brand-name .pop {
     color: var(--accent);
@@ -204,15 +213,15 @@
 
   /* Info Button */
   .info-btn {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--line);
     color: var(--dim);
     font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -221,21 +230,21 @@
   }
   .info-btn:hover {
     color: var(--text);
-    border-color: #3f4752;
+    border-color: #4f5866;
     background: #14181f;
   }
 
   /* Creator Popup Menu */
   .creator-popover {
     position: absolute;
-    top: 38px;
+    top: 42px;
     right: 0;
-    width: 260px;
+    width: 270px;
     background: var(--panel);
     border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    padding: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.8);
     z-index: 50;
     display: none;
     animation: fadeIn 0.15s ease;
@@ -250,28 +259,30 @@
 
   .creator-popover h3 {
     margin: 0 0 6px;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 800;
     color: var(--text);
   }
   .creator-popover p {
-    margin: 0 0 12px;
-    font-size: 12px;
+    margin: 0 0 14px;
+    font-size: 13px;
     color: var(--dim);
     line-height: 1.4;
+    font-weight: 600;
   }
 
   .creator-contact-section {
     border-top: 1px solid var(--line);
-    padding-top: 10px;
+    padding-top: 12px;
   }
 
   .contact-label {
-    font-size: 9px;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--dim);
     margin-bottom: 6px;
-    font-weight: 600;
+    font-weight: 800;
   }
 
   .email-copy-box {
@@ -280,23 +291,23 @@
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid #2e3640;
-    padding: 6px 8px;
+    padding: 6px 10px;
     border-radius: 6px;
     font-family: var(--mono);
     font-size: 11px;
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 600;
   }
   .copy-btn {
-    background: rgba(125, 255, 179, 0.12);
+    background: rgba(125, 255, 179, 0.15);
     border: 1px solid var(--accent);
     color: var(--accent);
     cursor: pointer;
-    font-size: 10px;
-    padding: 2px 6px;
+    font-size: 11px;
+    padding: 3px 8px;
     border-radius: 4px;
     font-family: var(--sans);
-    font-weight: 600;
+    font-weight: 800;
     transition: all 0.15s ease;
   }
   .copy-btn:hover { background: var(--accent); color: #000; }
@@ -310,8 +321,10 @@
     justify-content: center;
     padding: 16px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     z-index: 1;
+    width: 100%;
+    height: 100%;
   }
 
   #board {
@@ -319,13 +332,14 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
+    align-items: center;
     gap: var(--gap, 14px);
     width: 100%;
-    max-width: 850px;
-    max-height: 70vh;
-    overflow-y: auto;
+    height: 100%;
+    overflow: visible;
     transition: opacity 0.2s ease;
     padding: 10px;
+    margin: 0 auto;
   }
 
   .bubble {
@@ -334,8 +348,8 @@
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.12s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
-    width: var(--size, 90px);
-    height: var(--size, 90px);
+    width: var(--size, 100px);
+    height: var(--size, 100px);
     flex: 0 0 auto;
     box-shadow: 0 0 0 rgba(0,0,0,0), inset 0 0 14px rgba(255,255,255,0.03);
     position: relative;
@@ -385,12 +399,13 @@
   .bubble.popping {
     animation: clean-pop 0.18s ease-out forwards !important;
     pointer-events: none;
+    z-index: 10;
   }
 
   .bubble.popping::before {
     content: "";
     position: absolute;
-    inset: 0px;
+    inset: -2px;
     border-radius: 50%;
     border: 1.5px solid currentColor;
     animation: pop-ring 0.18s ease-out forwards;
@@ -452,9 +467,9 @@
   .card {
     background: var(--panel);
     border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 28px;
-    width: min(400px, 90vw);
+    border-radius: 20px;
+    padding: 32px;
+    width: min(420px, 90vw);
     text-align: center;
     transform: translateY(10px);
     transition: transform 0.25s ease;
@@ -465,86 +480,99 @@
   }
 
   .card.wide {
-    width: min(500px, 92vw);
+    width: min(520px, 92vw);
     text-align: left;
   }
 
   .card h1 {
     margin: 0 0 6px;
-    font-size: 24px;
-    letter-spacing: -0.01em;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
   }
   .card h1.win-title { color: var(--accent); }
   .card h1.lose-title { color: var(--danger); }
 
   .card p.sub {
     color: var(--dim);
-    font-size: 13px;
-    margin: 0 0 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 24px;
   }
 
   .result-row {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 12px 0;
     border-bottom: 1px solid var(--line);
-    font-family: var(--mono);
   }
   .result-row:last-of-type { border-bottom: none; }
-  .result-row .k { color: var(--dim); font-size: 12px; }
-  .result-row .v { font-size: 14px; font-weight: 600; }
+  .result-row .k { 
+    color: var(--dim); 
+    font-size: 12px; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    letter-spacing: 0.08em;
+  }
+  .result-row .v { 
+    font-family: var(--mono); 
+    font-size: 15px; 
+    font-weight: 800; 
+  }
 
-  /* OVERLAY BUTTON LAYOUT: Centered & Stacked */
+  /* OVERLAY BUTTON LAYOUT */
   .btn-row {
-    margin-top: 24px;
+    margin-top: 26px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
     width: 100%;
   }
 
   .btn {
     width: 100%;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 12px;
+    border-radius: 10px;
     border: 1px solid var(--line);
     background: #14181f;
     color: var(--text);
     font-family: var(--sans);
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     cursor: pointer;
     transition: all 0.15s ease;
   }
-  .btn:hover { background: #1f2530; border-color: #3c4654; }
+  .btn:hover { background: #1f2530; border-color: #4f5866; }
 
-  /* Primary Big Play Again Button */
   .btn.primary {
     background: var(--accent);
     color: #001a0d;
     border-color: var(--accent);
-    font-size: 15px;
-    padding: 14px;
-    font-weight: 700;
+    font-size: 16px;
+    padding: 15px;
+    font-weight: 900;
   }
   .btn.primary:hover {
+    background: #9a4dff;
     background: #92ffc0;
   }
 
-  /* Smaller Subordinate Share Button */
   .btn.secondary {
     background: transparent;
     border: 1px solid var(--line);
     color: var(--dim);
-    font-size: 11px;
-    padding: 8px;
-    width: 70%;
+    font-size: 12px;
+    padding: 10px;
+    width: 75%;
   }
   .btn.secondary:hover {
     color: var(--text);
-    border-color: #3f4752;
-    background: rgba(255, 255, 255, 0.03);
+    border-color: #4f5866;
+    background: rgba(255, 255, 255, 0.04);
   }
 
   /* ---------- Leaderboard ---------- */
@@ -554,22 +582,30 @@
     align-items: center;
     margin-bottom: 6px;
   }
-  .lb-header h2 { margin: 0; font-size: 16px; }
+  .lb-header h2 { 
+    margin: 0; 
+    font-size: 18px; 
+    font-weight: 900; 
+    text-transform: uppercase; 
+    letter-spacing: 0.04em; 
+  }
   .lb-close {
     background: none;
     border: none;
     color: var(--dim);
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
     line-height: 1;
     padding: 4px;
+    font-weight: 800;
   }
   .lb-close:hover { color: var(--text); }
 
   .lb-sub {
     color: var(--dim);
-    font-size: 11px;
-    margin: 0 0 16px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 0 18px;
     line-height: 1.4;
   }
 
@@ -578,38 +614,43 @@
     overflow-y: auto;
     padding-right: 4px;
   }
-  .lb-list::-webkit-scrollbar { width: 5px; }
-  .lb-list::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+  .lb-list::-webkit-scrollbar { width: 6px; }
+  .lb-list::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
 
   .lb-row {
     display: grid;
-    grid-template-columns: 28px 1fr auto;
-    gap: 10px;
+    grid-template-columns: 32px 1fr auto;
+    gap: 12px;
     align-items: center;
-    padding: 8px 6px;
-    border-radius: 6px;
+    padding: 10px 8px;
+    border-radius: 8px;
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 700;
   }
   .lb-row .rank { color: var(--dim); text-align: right; }
-  .lb-row .name { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .lb-row .score { font-weight: 700; text-align: right; }
-  .lb-row.top3 .rank { color: var(--accent); font-weight: 700; }
+  .lb-row .name { color: var(--text); font-family: var(--sans); font-weight: 800; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lb-row .score { font-weight: 800; text-align: right; }
+  .lb-row.top3 .rank { color: var(--accent); font-weight: 900; }
 
   .lb-empty {
     color: var(--dim);
-    font-size: 12px;
-    padding: 20px 6px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 24px 6px;
     text-align: center;
   }
 
+  /* RESTYLED BOLD SLOGAN FOOTER */
   footer {
     text-align: center;
-    padding: 10px;
-    font-size: 10px;
-    color: #4a525d;
+    padding: 14px 10px;
+    font-size: 13px;
+    font-weight: 900;
+    color: #949ca7;
     flex-shrink: 0;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
     z-index: 10;
   }
 </style>
@@ -668,11 +709,11 @@
   </div>
 </header>
 
-<main>
+<main id="mainStage">
   <div id="board"></div>
 </main>
 
-<footer>POP TILL YOU REACH THE TOP.</footer>
+<footer>POP TILL YOU REACH THE TOP</footer>
 
 <!-- Game Over overlay -->
 <div class="overlay" id="gameOverOverlay">
@@ -751,6 +792,7 @@
     supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   }
 
+  const mainStageEl = document.getElementById("mainStage");
   const boardEl = document.getElementById("board");
   const roundValEl = document.getElementById("roundVal");
   const chanceValEl = document.getElementById("chanceVal");
@@ -766,7 +808,6 @@
   let round = 1;
   let locked = false;
   
-  // SECURE IN-MEMORY TARGET
   let _targetIndex = -1;
   let _sessionStartTime = Date.now();
 
@@ -808,7 +849,7 @@
         btn.style.color = "#000";
         setTimeout(() => {
           btn.textContent = "Copy";
-          btn.style.background = "rgba(125, 255, 179, 0.12)";
+          btn.style.background = "rgba(125, 255, 179, 0.15)";
           btn.style.color = "var(--accent)";
         }, 1500);
       });
@@ -941,17 +982,33 @@
     return "1 in " + denom.toExponential(2);
   }
 
-  function sizeForRound(n) {
-    const isMobile = window.innerWidth <= 600;
-    if (n <= 4) return { size: isMobile ? 100 : 140, gap: isMobile ? 14 : 22 };
-    if (n <= 9) return { size: isMobile ? 75 : 100, gap: isMobile ? 12 : 18 };
-    if (n <= 16) return { size: isMobile ? 55 : 80, gap: isMobile ? 10 : 16 };
-    if (n <= 25) return { size: isMobile ? 45 : 64, gap: isMobile ? 8 : 14 };
-    if (n <= 36) return { size: isMobile ? 36 : 52, gap: isMobile ? 7 : 12 };
-    if (n <= 49) return { size: isMobile ? 30 : 44, gap: isMobile ? 6 : 10 };
-    if (n <= 64) return { size: isMobile ? 26 : 38, gap: isMobile ? 5 : 9 };
-    if (n <= 81) return { size: isMobile ? 23 : 32, gap: isMobile ? 4 : 8 };
-    return { size: isMobile ? 20 : 27, gap: isMobile ? 3 : 7 };
+  /* CALCULATE SIZES AND FORCE GRID COLS */
+  function computeDynamicSizes(count) {
+    const availWidth = Math.min(mainStageEl.clientWidth || window.innerWidth - 32, 900);
+    const availHeight = mainStageEl.clientHeight || (window.innerHeight - 120);
+
+    let cols = Math.ceil(Math.sqrt(count));
+    let rows = Math.ceil(count / cols);
+
+    let baseSize = 160;
+    if (count === 1) baseSize = 180;
+    else if (count <= 4) baseSize = 130;
+    else if (count <= 9) baseSize = 100;
+    else if (count <= 16) baseSize = 80;
+
+    let gap = Math.max(6, Math.floor(baseSize * 0.12));
+
+    let maxBubbleW = Math.floor((availWidth - (cols + 1) * gap) / cols);
+    let maxBubbleH = Math.floor((availHeight - (rows + 1) * gap) / rows);
+
+    let finalSize = Math.min(baseSize, maxBubbleW, maxBubbleH);
+    finalSize = Math.max(18, finalSize);
+    gap = Math.max(2, Math.floor(finalSize * 0.1));
+
+    const exactBoardWidth = (finalSize * cols) + (gap * (cols - 1)) + 20;
+    boardEl.style.maxWidth = exactBoardWidth + "px";
+
+    return { size: finalSize, gap: gap };
   }
 
   function renderRound() {
@@ -959,11 +1016,10 @@
     boardEl.classList.remove("pulse-in");
     boardEl.innerHTML = "";
 
-    const { size, gap } = sizeForRound(round);
+    const { size, gap } = computeDynamicSizes(round);
     boardEl.style.setProperty("--size", size + "px");
     boardEl.style.setProperty("--gap", gap + "px");
 
-    // Target in memory
     _targetIndex = Math.floor(Math.random() * round);
 
     for (let i = 0; i < round; i++) {
@@ -977,8 +1033,19 @@
     requestAnimationFrame(() => boardEl.classList.add("pulse-in"));
 
     roundValEl.textContent = round;
-    const chance = 100 / round;
-    chanceValEl.textContent = (Number.isInteger(chance) ? chance : chance.toFixed(1)) + "%";
+    
+    // SMART DYNAMIC PERCENTAGE FORMATTING (Prevents 0.00% display)
+    const rawChance = 100 / round;
+    let formattedChance = "";
+    if (rawChance >= 10) {
+      formattedChance = (Number.isInteger(rawChance) ? rawChance : rawChance.toFixed(1)) + "%";
+    } else if (rawChance >= 1) {
+      formattedChance = rawChance.toFixed(1) + "%";
+    } else {
+      formattedChance = rawChance.toFixed(2) + "%"; // Handles tiny decimals cleanly
+    }
+    
+    chanceValEl.textContent = formattedChance;
     cumChanceValEl.textContent = formatOdds(round);
   }
 
@@ -1054,7 +1121,6 @@
       gameOverOverlay.classList.add("show");
     }
 
-    // Save run to Supabase
     if (score > 0 && supabase) {
       try {
         await supabase.from("leaderboard").insert([{ name: playerName, score: score }]);
@@ -1142,14 +1208,12 @@
     renderRound();
   }
 
-  // Resize handler to re-scale grid on device rotate
   window.addEventListener("resize", () => {
-    const { size, gap } = sizeForRound(round);
+    const { size, gap } = computeDynamicSizes(round);
     boardEl.style.setProperty("--size", size + "px");
     boardEl.style.setProperty("--gap", gap + "px");
   });
 
-  // Event Listeners
   document.getElementById("lbOpenBtn").addEventListener("click", () => {
     renderLeaderboard();
     lbOverlay.classList.add("show");
@@ -1161,14 +1225,12 @@
   document.getElementById("goRestartBtn").addEventListener("click", resetGame);
   document.getElementById("vRestartBtn").addEventListener("click", resetGame);
 
-  // Close leaderboard overlay when clicking the dark backdrop
   lbOverlay.addEventListener("click", (e) => {
     if (e.target === lbOverlay) {
       lbOverlay.classList.remove("show");
     }
   });
 
-  // Start the game on page load
   resetGame();
 })();
 </script>
