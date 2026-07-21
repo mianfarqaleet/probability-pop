@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Probability Pop</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%237dffb3'/><circle cx='35' cy='35' r='12' fill='rgba(255,255,255,0.4)'/></svg>">
+<!-- Custom Green Bubble Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%237dffb3'/%3E%3Ccircle cx='35' cy='35' r='12' fill='rgba(255,255,255,0.4)'/%3E%3C/svg%3E">
 <!-- Google Fonts for Bold, Punchy Typography -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,6 +137,7 @@
     padding: 5px 10px;
     border-radius: 8px;
     transition: all 0.15s ease;
+    position: relative;
   }
   .player-name-box:focus-within {
     border-color: var(--accent);
@@ -151,6 +153,53 @@
     font-weight: 800;
     width: 100px;
     padding: 1px 0;
+  }
+
+  /* First-time Name Prompt Tooltip */
+  .name-hint-tooltip {
+    position: absolute;
+    top: 65px;
+    left: 0px;
+    background: var(--accent);
+    color: #001a0d;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 800;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: bounceHint 0.6s ease infinite alternate;
+    white-space: nowrap;
+  }
+  .name-hint-tooltip::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    transform: rotate(45deg);
+  }
+  @keyframes bounceHint {
+    from { transform: translateY(0); }
+    to { transform: translateY(-4px); }
+  }
+  .name-hint-dismiss {
+    background: rgba(0,0,0,0.15);
+    border: none;
+    color: #001a0d;
+    font-weight: 900;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .name-hint-dismiss:hover {
+    background: rgba(0,0,0,0.3);
   }
 
   .lb-btn {
@@ -558,7 +607,6 @@
     font-weight: 900;
   }
   .btn.primary:hover {
-    background: #9a4dff;
     background: #92ffc0;
   }
 
@@ -665,6 +713,12 @@
     <div class="player-name-box">
       <span class="stat-label">Player</span>
       <input type="text" id="playerNameInput" class="player-name-input" maxlength="16" value="Anonymous" placeholder="Name">
+      
+      <!-- One-time onboarding hint -->
+      <div class="name-hint-tooltip" id="nameHintTooltip" style="display: none;">
+        <span>👈 Psst! Click here to set your name!</span>
+        <button class="name-hint-dismiss" id="dismissHintBtn">Got it</button>
+      </div>
     </div>
 
     <div class="stat">
@@ -783,6 +837,7 @@
   const MAX_ROUND = 100;
   const STORAGE_HIGH = "pp_highscore_persistent";
   const STORAGE_NAME = "pp_player_name";
+  const STORAGE_HINT_SHOWN = "pp_name_hint_seen";
 
   // --- SUPABASE DATABASE CREDENTIALS ---
   const SUPABASE_URL = "https://lijbnnplswtxzssdqjrk.supabase.co";
@@ -800,6 +855,8 @@
   const cumChanceValEl = document.getElementById("cumChanceVal");
   const highValEl = document.getElementById("highVal");
   const playerNameInput = document.getElementById("playerNameInput");
+  const nameHintTooltip = document.getElementById("nameHintTooltip");
+  const dismissHintBtn = document.getElementById("dismissHintBtn");
 
   const gameOverOverlay = document.getElementById("gameOverOverlay");
   const victoryOverlay = document.getElementById("victoryOverlay");
@@ -820,11 +877,26 @@
   let playerName = localStorage.getItem(STORAGE_NAME) || "Anonymous";
   playerNameInput.value = playerName;
 
+  // First-time Name Hint Logic
+  const hasSeenHint = localStorage.getItem(STORAGE_HINT_SHOWN);
+  if (!hasSeenHint && (!playerName || playerName === "Anonymous")) {
+    nameHintTooltip.style.display = "flex";
+  }
+
+  function hideNameHint() {
+    nameHintTooltip.style.display = "none";
+    localStorage.setItem(STORAGE_HINT_SHOWN, "true");
+  }
+
+  dismissHintBtn.addEventListener("click", hideNameHint);
+  playerNameInput.addEventListener("focus", hideNameHint);
+
   playerNameInput.addEventListener("input", (e) => {
     let val = e.target.value.trim();
     if (val === "") val = "Anonymous";
     playerName = val;
     localStorage.setItem(STORAGE_NAME, val);
+    hideNameHint();
   });
 
   // Creator Info Toggle
