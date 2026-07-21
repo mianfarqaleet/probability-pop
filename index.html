@@ -78,7 +78,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 28px;
+    padding: 12px 20px;
     border-bottom: 1px solid var(--line);
     flex-shrink: 0;
     z-index: 10;
@@ -88,21 +88,22 @@
 
   .stats {
     display: flex;
-    gap: 24px;
+    gap: 16px;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .stat-label {
-    font-size: 10px;
+    font-size: 9px;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     color: var(--dim);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
 
   .stat-value {
     font-family: var(--mono);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
     line-height: 1;
@@ -115,8 +116,8 @@
 
   .stat-value.cum-chance {
     color: #8bb2ff;
-    font-size: 17px;
-    margin-top: 4px;
+    font-size: 15px;
+    margin-top: 2px;
   }
 
   /* Inline Editable Player Name Field */
@@ -126,7 +127,7 @@
     justify-content: center;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--line);
-    padding: 4px 10px;
+    padding: 4px 8px;
     border-radius: 8px;
     transition: all 0.15s ease;
   }
@@ -140,10 +141,10 @@
     outline: none;
     color: var(--text);
     font-family: var(--mono);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    width: 110px;
-    padding: 2px 0;
+    width: 90px;
+    padding: 1px 0;
   }
 
   .lb-btn {
@@ -151,8 +152,8 @@
     border: 1px solid var(--line);
     color: var(--text);
     font-family: var(--sans);
-    font-size: 13px;
-    padding: 8px 16px;
+    font-size: 12px;
+    padding: 6px 12px;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.15s ease;
@@ -166,14 +167,14 @@
   .brand-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     position: relative;
   }
 
   .brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     text-align: right;
   }
 
@@ -182,35 +183,35 @@
     gap: 3px;
   }
   .brand-icon span {
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--accent);
     box-shadow: 0 0 10px var(--accent);
     display: inline-block;
   }
-  .brand-icon span:nth-child(2) { opacity: 0.55; width: 6px; height: 6px; margin-top: 3px; }
+  .brand-icon span:nth-child(2) { opacity: 0.55; width: 5px; height: 5px; margin-top: 3px; }
 
   .brand-name {
     font-weight: 800;
     letter-spacing: 0.03em;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--text);
   }
   .brand-name .pop {
     color: var(--accent);
   }
 
-  /* Info / Creator Button */
+  /* Info Button */
   .info-btn {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--line);
     color: var(--dim);
     font-family: var(--mono);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -227,13 +228,13 @@
   /* Creator Popup Menu */
   .creator-popover {
     position: absolute;
-    top: 42px;
+    top: 38px;
     right: 0;
-    width: 290px;
+    width: 260px;
     background: var(--panel);
     border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 18px;
+    padding: 16px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.7);
     z-index: 50;
     display: none;
@@ -249,41 +250,27 @@
 
   .creator-popover h3 {
     margin: 0 0 6px;
-    font-size: 15px;
+    font-size: 14px;
     color: var(--text);
   }
   .creator-popover p {
-    margin: 0 0 16px;
+    margin: 0 0 12px;
     font-size: 12px;
     color: var(--dim);
     line-height: 1.4;
   }
 
-  .creator-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: var(--accent);
-    text-decoration: none;
-    margin-bottom: 22px;
-    font-weight: 600;
-  }
-  .creator-link:hover { text-decoration: underline; }
-
-  /* Contact Section Separation */
   .creator-contact-section {
     border-top: 1px solid var(--line);
-    padding-top: 14px;
-    margin-top: 8px;
+    padding-top: 10px;
   }
 
   .contact-label {
-    font-size: 10px;
+    font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--dim);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: 600;
   }
 
@@ -293,10 +280,10 @@
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid #2e3640;
-    padding: 8px 10px;
+    padding: 6px 8px;
     border-radius: 6px;
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 11px;
     color: #ffffff;
     font-weight: 500;
   }
@@ -305,8 +292,8 @@
     border: 1px solid var(--accent);
     color: var(--accent);
     cursor: pointer;
-    font-size: 11px;
-    padding: 3px 8px;
+    font-size: 10px;
+    padding: 2px 6px;
     border-radius: 4px;
     font-family: var(--sans);
     font-weight: 600;
@@ -321,24 +308,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 16px;
     position: relative;
     overflow: hidden;
     z-index: 1;
-  }
-
-  #roundBanner {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--dim);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--line);
-    padding: 6px 16px;
-    border-radius: 20px;
-    backdrop-filter: blur(4px);
   }
 
   #board {
@@ -348,8 +321,11 @@
     justify-content: center;
     gap: var(--gap, 14px);
     width: 100%;
-    max-width: 900px;
+    max-width: 850px;
+    max-height: 70vh;
+    overflow-y: auto;
     transition: opacity 0.2s ease;
+    padding: 10px;
   }
 
   .bubble {
@@ -390,28 +366,60 @@
   .bubble.correct {
     background: radial-gradient(circle at 33% 28%, #a8ffcb, var(--accent) 75%);
     border-color: var(--accent);
-    box-shadow: 0 0 30px rgba(125,255,179,0.6);
+    color: var(--accent);
+    box-shadow: 0 0 20px rgba(125,255,179,0.4);
   }
 
   .bubble.wrong {
     background: radial-gradient(circle at 33% 28%, #ff8a95, var(--danger) 75%);
     border-color: var(--danger);
-    box-shadow: 0 0 30px rgba(255,77,94,0.6);
+    color: var(--danger);
+    box-shadow: 0 0 20px rgba(255,77,94,0.4);
   }
 
   .bubble.locked {
     cursor: default;
   }
 
+  /* BUBBLE POPPING ANIMATION */
   .bubble.popping {
-    animation: pop-burst 0.38s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+    animation: clean-pop 0.18s ease-out forwards !important;
     pointer-events: none;
   }
 
-  @keyframes pop-burst {
-    0%   { transform: scale(1); opacity: 1; }
-    35%  { transform: scale(1.22); opacity: 0.9; }
-    100% { transform: scale(0.1); opacity: 0; }
+  .bubble.popping::before {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+    animation: pop-ring 0.18s ease-out forwards;
+  }
+
+  @keyframes clean-pop {
+    0% { transform: scale(1); opacity: 1; }
+    40% { transform: scale(1.15); opacity: 0.8; }
+    100% { transform: scale(1.3); opacity: 0; }
+  }
+
+  @keyframes pop-ring {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* Subtle Droplets */
+  .pop-droplet {
+    position: absolute;
+    border-radius: 50%;
+    background: currentColor;
+    pointer-events: none;
+    z-index: 20;
+    animation: droplet-fly 0.22s ease-out forwards;
+  }
+
+  @keyframes droplet-fly {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.9; }
+    100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
   }
 
   #board.pulse-in .bubble {
@@ -445,8 +453,8 @@
     background: var(--panel);
     border: 1px solid var(--line);
     border-radius: 16px;
-    padding: 36px;
-    width: min(420px, 90vw);
+    padding: 28px;
+    width: min(400px, 90vw);
     text-align: center;
     transform: translateY(10px);
     transition: transform 0.25s ease;
@@ -457,13 +465,13 @@
   }
 
   .card.wide {
-    width: min(520px, 92vw);
+    width: min(500px, 92vw);
     text-align: left;
   }
 
   .card h1 {
     margin: 0 0 6px;
-    font-size: 28px;
+    font-size: 24px;
     letter-spacing: -0.01em;
   }
   .card h1.win-title { color: var(--accent); }
@@ -471,48 +479,72 @@
 
   .card p.sub {
     color: var(--dim);
-    font-size: 14px;
-    margin: 0 0 24px;
+    font-size: 13px;
+    margin: 0 0 20px;
   }
 
   .result-row {
     display: flex;
     justify-content: space-between;
-    padding: 12px 0;
+    padding: 10px 0;
     border-bottom: 1px solid var(--line);
     font-family: var(--mono);
   }
   .result-row:last-of-type { border-bottom: none; }
-  .result-row .k { color: var(--dim); font-size: 13px; }
-  .result-row .v { font-size: 15px; font-weight: 600; }
+  .result-row .k { color: var(--dim); font-size: 12px; }
+  .result-row .v { font-size: 14px; font-weight: 600; }
 
+  /* OVERLAY BUTTON LAYOUT: Centered & Stacked */
   .btn-row {
     margin-top: 24px;
     display: flex;
+    flex-direction: column;
     gap: 10px;
+    align-items: center;
+    width: 100%;
   }
 
   .btn {
-    flex: 1;
-    padding: 12px;
+    width: 100%;
+    padding: 10px;
     border-radius: 8px;
     border: 1px solid var(--line);
     background: #14181f;
     color: var(--text);
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.15s ease;
   }
   .btn:hover { background: #1f2530; border-color: #3c4654; }
+
+  /* Primary Big Play Again Button */
   .btn.primary {
     background: var(--accent);
     color: #001a0d;
     border-color: var(--accent);
+    font-size: 15px;
+    padding: 14px;
+    font-weight: 700;
   }
   .btn.primary:hover {
     background: #92ffc0;
+  }
+
+  /* Smaller Subordinate Share Button */
+  .btn.secondary {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--dim);
+    font-size: 11px;
+    padding: 8px;
+    width: 70%;
+  }
+  .btn.secondary:hover {
+    color: var(--text);
+    border-color: #3f4752;
+    background: rgba(255, 255, 255, 0.03);
   }
 
   /* ---------- Leaderboard ---------- */
@@ -522,10 +554,7 @@
     align-items: center;
     margin-bottom: 6px;
   }
-  .lb-header h2 {
-    margin: 0;
-    font-size: 18px;
-  }
+  .lb-header h2 { margin: 0; font-size: 16px; }
   .lb-close {
     background: none;
     border: none;
@@ -539,45 +568,45 @@
 
   .lb-sub {
     color: var(--dim);
-    font-size: 12px;
-    margin: 0 0 18px;
-    line-height: 1.5;
+    font-size: 11px;
+    margin: 0 0 16px;
+    line-height: 1.4;
   }
 
   .lb-list {
-    max-height: 46vh;
+    max-height: 44vh;
     overflow-y: auto;
     padding-right: 4px;
   }
-  .lb-list::-webkit-scrollbar { width: 6px; }
+  .lb-list::-webkit-scrollbar { width: 5px; }
   .lb-list::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
 
   .lb-row {
     display: grid;
-    grid-template-columns: 32px 1fr auto;
-    gap: 12px;
+    grid-template-columns: 28px 1fr auto;
+    gap: 10px;
     align-items: center;
-    padding: 9px 6px;
+    padding: 8px 6px;
     border-radius: 6px;
     font-family: var(--mono);
-    font-size: 13px;
+    font-size: 12px;
   }
   .lb-row .rank { color: var(--dim); text-align: right; }
-  .lb-row .name { color: var(--text); }
+  .lb-row .name { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .lb-row .score { font-weight: 700; text-align: right; }
   .lb-row.top3 .rank { color: var(--accent); font-weight: 700; }
 
   .lb-empty {
     color: var(--dim);
-    font-size: 13px;
-    padding: 24px 6px;
+    font-size: 12px;
+    padding: 20px 6px;
     text-align: center;
   }
 
   footer {
     text-align: center;
-    padding: 12px;
-    font-size: 11px;
+    padding: 10px;
+    font-size: 10px;
     color: #4a525d;
     flex-shrink: 0;
     letter-spacing: 0.08em;
@@ -591,7 +620,6 @@
 
 <header>
   <div class="stats">
-    <!-- Editable Player Name Box -->
     <div class="player-name-box">
       <span class="stat-label">Player</span>
       <input type="text" id="playerNameInput" class="player-name-input" maxlength="16" value="Anonymous" placeholder="Name">
@@ -625,19 +653,14 @@
     </div>
     <button class="info-btn" id="infoBtn" title="About the Creator">?</button>
 
-    <!-- Creator Info Popover -->
     <div class="creator-popover" id="creatorPopover">
       <h3>Hey there! 👋</h3>
       <p>I built this game to test raw luck and probability!</p>
-      
-      <a href="https://www.youtube.com/@epicexpert06" target="_blank" class="creator-link">
-        ▶ Check out my YouTube channel
-      </a>
 
       <div class="creator-contact-section">
         <div class="contact-label">Connect</div>
         <div class="email-copy-box">
-          <span id="contactEmail">probabilitypop@gmail.com</span>
+          <span id="contactEmail">probability.pop@gmail.com</span>
           <button class="copy-btn" id="copyEmailBtn">Copy</button>
         </div>
       </div>
@@ -646,7 +669,6 @@
 </header>
 
 <main>
-  <div id="roundBanner">Round 1 of 100</div>
   <div id="board"></div>
 </main>
 
@@ -674,9 +696,8 @@
       <span class="v" id="goHigh">—</span>
     </div>
     <div class="btn-row">
-      <button class="btn" id="goShareBtn">Share Result</button>
-      <button class="btn" id="goLbBtn">Leaderboard</button>
       <button class="btn primary" id="goRestartBtn">Play Again</button>
+      <button class="btn secondary" id="goShareBtn">Share Result</button>
     </div>
   </div>
 </div>
@@ -695,9 +716,8 @@
       <span class="v" id="vHigh">—</span>
     </div>
     <div class="btn-row">
-      <button class="btn" id="vShareBtn">Share Result</button>
-      <button class="btn" id="vLbBtn">Leaderboard</button>
       <button class="btn primary" id="vRestartBtn">Play Again</button>
+      <button class="btn secondary" id="vShareBtn">Share Result</button>
     </div>
   </div>
 </div>
@@ -736,7 +756,6 @@
   const chanceValEl = document.getElementById("chanceVal");
   const cumChanceValEl = document.getElementById("cumChanceVal");
   const highValEl = document.getElementById("highVal");
-  const roundBannerEl = document.getElementById("roundBanner");
   const playerNameInput = document.getElementById("playerNameInput");
 
   const gameOverOverlay = document.getElementById("gameOverOverlay");
@@ -747,6 +766,10 @@
   let round = 1;
   let locked = false;
   
+  // SECURE IN-MEMORY TARGET
+  let _targetIndex = -1;
+  let _sessionStartTime = Date.now();
+
   // Local Highscore
   let highScore = parseInt(localStorage.getItem(STORAGE_HIGH) || "0", 10);
   highValEl.textContent = highScore;
@@ -774,7 +797,7 @@
     }
   });
 
-  // Copy Email Button (Silent Feedback)
+  // Copy Email Button
   document.getElementById("copyEmailBtn").addEventListener("click", () => {
     const email = document.getElementById("contactEmail").textContent;
     if (navigator.clipboard) {
@@ -870,6 +893,38 @@
     } catch (e) {}
   }
 
+  function createPopParticles(bubble, colorClass) {
+    const rect = bubble.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const count = 6;
+
+    for (let i = 0; i < count; i++) {
+      const drop = document.createElement("div");
+      drop.className = "pop-droplet";
+      
+      const isGreen = colorClass === "correct";
+      drop.style.color = isGreen ? "var(--accent)" : "var(--danger)";
+      
+      const size = Math.floor(Math.random() * 4) + 3;
+      drop.style.width = size + "px";
+      drop.style.height = size + "px";
+
+      const angle = (i / count) * (Math.PI * 2) + (Math.random() * 0.2 - 0.1);
+      const distance = Math.floor(Math.random() * 15) + 20;
+      const dx = Math.cos(angle) * distance;
+      const dy = Math.sin(angle) * distance;
+
+      drop.style.left = centerX + "px";
+      drop.style.top = centerY + "px";
+      drop.style.setProperty("--dx", dx + "px");
+      drop.style.setProperty("--dy", dy + "px");
+
+      document.body.appendChild(drop);
+      setTimeout(() => drop.remove(), 220);
+    }
+  }
+
   function getCumulativeOddsDenominator(n) {
     let result = 1;
     for (let i = 1; i <= n; i++) {
@@ -887,15 +942,16 @@
   }
 
   function sizeForRound(n) {
-    if (n <= 4) return { size: 140, gap: 22 };
-    if (n <= 9) return { size: 100, gap: 18 };
-    if (n <= 16) return { size: 80, gap: 16 };
-    if (n <= 25) return { size: 64, gap: 14 };
-    if (n <= 36) return { size: 52, gap: 12 };
-    if (n <= 49) return { size: 44, gap: 10 };
-    if (n <= 64) return { size: 38, gap: 9 };
-    if (n <= 81) return { size: 32, gap: 8 };
-    return { size: 27, gap: 7 };
+    const isMobile = window.innerWidth <= 600;
+    if (n <= 4) return { size: isMobile ? 100 : 140, gap: isMobile ? 14 : 22 };
+    if (n <= 9) return { size: isMobile ? 75 : 100, gap: isMobile ? 12 : 18 };
+    if (n <= 16) return { size: isMobile ? 55 : 80, gap: isMobile ? 10 : 16 };
+    if (n <= 25) return { size: isMobile ? 45 : 64, gap: isMobile ? 8 : 14 };
+    if (n <= 36) return { size: isMobile ? 36 : 52, gap: isMobile ? 7 : 12 };
+    if (n <= 49) return { size: isMobile ? 30 : 44, gap: isMobile ? 6 : 10 };
+    if (n <= 64) return { size: isMobile ? 26 : 38, gap: isMobile ? 5 : 9 };
+    if (n <= 81) return { size: isMobile ? 23 : 32, gap: isMobile ? 4 : 8 };
+    return { size: isMobile ? 20 : 27, gap: isMobile ? 3 : 7 };
   }
 
   function renderRound() {
@@ -907,12 +963,13 @@
     boardEl.style.setProperty("--size", size + "px");
     boardEl.style.setProperty("--gap", gap + "px");
 
-    const correctIndex = Math.floor(Math.random() * round);
+    // Target in memory
+    _targetIndex = Math.floor(Math.random() * round);
 
     for (let i = 0; i < round; i++) {
       const bubble = document.createElement("div");
       bubble.className = "bubble";
-      bubble.dataset.correct = (i === correctIndex) ? "1" : "0";
+      bubble._idx = i;
       bubble.addEventListener("click", onBubbleClick);
       boardEl.appendChild(bubble);
     }
@@ -923,19 +980,20 @@
     const chance = 100 / round;
     chanceValEl.textContent = (Number.isInteger(chance) ? chance : chance.toFixed(1)) + "%";
     cumChanceValEl.textContent = formatOdds(round);
-    roundBannerEl.textContent = "Round " + round + " of " + MAX_ROUND;
   }
 
   function onBubbleClick(e) {
     if (locked) return;
     const bubble = e.currentTarget;
+    const clickedIdx = bubble._idx;
     locked = true;
 
     const allBubbles = Array.from(boardEl.children);
     allBubbles.forEach(b => b.classList.add("locked"));
 
-    if (bubble.dataset.correct === "1") {
+    if (clickedIdx === _targetIndex) {
       bubble.classList.add("correct", "popping");
+      createPopParticles(bubble, "correct");
       playPopSound(1.1);
       triggerHaptic("pop");
 
@@ -946,30 +1004,38 @@
           round += 1;
           renderRound();
         }
-      }, 500);
+      }, 250);
 
     } else {
       bubble.classList.add("wrong", "popping");
+      createPopParticles(bubble, "wrong");
       playBadSound();
       triggerHaptic("fail");
 
-      const correctBubble = allBubbles.find(b => b.dataset.correct === "1");
+      const correctBubble = allBubbles.find(b => b._idx === _targetIndex);
 
       setTimeout(() => {
         if (correctBubble) {
           correctBubble.classList.add("correct", "popping");
+          createPopParticles(correctBubble, "correct");
         }
-      }, 300);
+      }, 200);
 
       setTimeout(() => {
         finishGame(false);
-      }, 1000);
+      }, 700);
     }
   }
 
   async function finishGame(won) {
     const score = won ? MAX_ROUND : round - 1;
-    
+
+    const elapsedSeconds = (Date.now() - _sessionStartTime) / 1000;
+    if (score > 5 && elapsedSeconds < score * 0.1) {
+      console.warn("Run discarded due to unrealistic execution speed.");
+      return;
+    }
+
     if (score > highScore) {
       highScore = score;
       localStorage.setItem(STORAGE_HIGH, String(highScore));
@@ -988,7 +1054,7 @@
       gameOverOverlay.classList.add("show");
     }
 
-    // Auto-save run to Supabase
+    // Save run to Supabase
     if (score > 0 && supabase) {
       try {
         await supabase.from("leaderboard").insert([{ name: playerName, score: score }]);
@@ -1028,10 +1094,22 @@
     data.forEach((entry, idx) => {
       const row = document.createElement("div");
       row.className = "lb-row" + (idx < 3 ? " top3" : "");
-      row.innerHTML =
-        '<span class="rank">#' + (idx + 1) + '</span>' +
-        '<span class="name">' + (entry.name || 'Anonymous') + '</span>' +
-        '<span class="score">' + entry.score + '</span>';
+      
+      const rankSpan = document.createElement("span");
+      rankSpan.className = "rank";
+      rankSpan.textContent = '#' + (idx + 1);
+
+      const nameSpan = document.createElement("span");
+      nameSpan.className = "name";
+      nameSpan.textContent = entry.name || 'Anonymous';
+
+      const scoreSpan = document.createElement("span");
+      scoreSpan.className = "score";
+      scoreSpan.textContent = entry.score;
+
+      row.appendChild(rankSpan);
+      row.appendChild(nameSpan);
+      row.appendChild(scoreSpan);
       container.appendChild(row);
     });
   }
@@ -1039,9 +1117,8 @@
   function shareResult(e) {
     const score = round - 1;
     const odds = score > 0 ? formatOdds(score) : "1 in 1";
-    // Fallback to current URL if running live, or placeholder if running inside an iframe/preview
     const rawUrl = window.location.href;
-    const gameUrl = rawUrl.includes("srcdoc") ? "https://your-game-domain.vercel.app" : rawUrl;
+    const gameUrl = rawUrl.includes("srcdoc") ? "https://probability-pop.vercel.app" : rawUrl;
     
     const text = "🫧 I survived " + score + " rounds in Probability Pop! Defied " + odds + " odds! 🎲🔥\n\nThink you can beat me? Play here 👇\n" + gameUrl;
     
@@ -1059,10 +1136,18 @@
   function resetGame() {
     round = 1;
     locked = false;
+    _sessionStartTime = Date.now();
     gameOverOverlay.classList.remove("show");
     victoryOverlay.classList.remove("show");
     renderRound();
   }
+
+  // Resize handler to re-scale grid on device rotate
+  window.addEventListener("resize", () => {
+    const { size, gap } = sizeForRound(round);
+    boardEl.style.setProperty("--size", size + "px");
+    boardEl.style.setProperty("--gap", gap + "px");
+  });
 
   // Event Listeners
   document.getElementById("lbOpenBtn").addEventListener("click", () => {
@@ -1070,23 +1155,21 @@
     lbOverlay.classList.add("show");
   });
   document.getElementById("lbCloseBtn").addEventListener("click", () => lbOverlay.classList.remove("show"));
-  document.getElementById("goLbBtn").addEventListener("click", () => {
-    renderLeaderboard();
-    lbOverlay.classList.add("show");
-  });
-  document.getElementById("vLbBtn").addEventListener("click", () => {
-    renderLeaderboard();
-    lbOverlay.classList.add("show");
-  });
+
   document.getElementById("goShareBtn").addEventListener("click", shareResult);
   document.getElementById("vShareBtn").addEventListener("click", shareResult);
   document.getElementById("goRestartBtn").addEventListener("click", resetGame);
   document.getElementById("vRestartBtn").addEventListener("click", resetGame);
+
+  // Close leaderboard overlay when clicking the dark backdrop
   lbOverlay.addEventListener("click", (e) => {
-    if (e.target === lbOverlay) lbOverlay.classList.remove("show");
+    if (e.target === lbOverlay) {
+      lbOverlay.classList.remove("show");
+    }
   });
 
-  renderRound();
+  // Start the game on page load
+  resetGame();
 })();
 </script>
 </body>
