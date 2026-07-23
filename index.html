@@ -796,10 +796,6 @@
     <h1 class="lose-title">Game Over</h1>
     <p class="sub">The odds caught up with you.</p>
     <div class="result-row">
-      <span class="k">Round Reached</span>
-      <span class="v" id="goRound">—</span>
-    </div>
-    <div class="result-row">
       <span class="k">Final Score</span>
       <span class="v" id="goScore">—</span>
     </div>
@@ -1207,7 +1203,6 @@
       document.getElementById("vHigh").textContent = highScore;
       victoryOverlay.classList.add("show");
     } else {
-      document.getElementById("goRound").textContent = round;
       document.getElementById("goScore").textContent = score;
       document.getElementById("goOdds").textContent = score > 0 ? formatOdds(score) : "1 in 1";
       document.getElementById("goHigh").textContent = highScore;
